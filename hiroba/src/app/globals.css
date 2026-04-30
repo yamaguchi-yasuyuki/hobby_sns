@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* ── カラーシステム（子育て世代向け・温かみのあるデザイン） ── */
+
+  /* テキスト */
+  --color-ink:        #1E3A2F;
+  --color-ink-mid:    #4A7060;
+  --color-ink-light:  #88A898;
+
+  /* 背景 */
+  --color-paper:      #F5F9F5;
+  --color-surface:    #FFFFFF;
+
+  /* ボーダー */
+  --color-border:       #C8DDD0;
+  --color-border-light: #E0EEE6;
+
+  /* ブランド（フォレストグリーン） */
+  --color-green:        #1E7A4A;
+  --color-green-mid:    #2E9A60;
+  --color-green-light:  #E8F5ED;
+  --color-green-dark:   #145C38;
+
+  /* アクセント（暖色） */
+  --color-orange:       #F5883C;
+  --color-orange-light: #FEF0E7;
+  --color-yellow:       #FBBF24;
+  --color-yellow-light: #FFFBEB;
+
+  /* フォント */
+  --font-sans: var(--font-noto-sans, "Noto Sans JP", "Hiragino Sans", "Yu Gothic Medium", sans-serif);
+}
+
+:root {
+  --background: #F5F9F5;
+  --foreground: #1E3A2F;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* ── スクロールバー ── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #C8DDD0; border-radius: 2px; }
+
+/* ── アニメーション ── */
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.97) translateY(12px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);    }
+}
+@keyframes modal-backdrop-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slide-from-right {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+@keyframes slide-from-left {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+@keyframes bounce-in {
+  from { opacity: 0; transform: scale(0.92); }
+  60%  { transform: scale(1.04); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.animate-modal-in    { animation: modal-in          0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-backdrop-in { animation: modal-backdrop-in 0.22s ease-out forwards; }
+.animate-slide-right { animation: slide-from-right  0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-slide-left  { animation: slide-from-left   0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-up     { animation: fade-up            0.3s  cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-bounce-in   { animation: bounce-in          0.4s  cubic-bezier(0.16, 1, 0.3, 1) forwards; }

@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* ── Quiet Luxury カラーシステム ── */
+
+  /* テキスト */
+  --color-ink:        #191916;
+  --color-ink-mid:    #605A52;
+  --color-ink-light:  #A09890;
+
+  /* 背景 */
+  --color-paper:      #F3F0EB;
+  --color-surface:    #FDFCFA;
+
+  /* ボーダー */
+  --color-border:       #DDD8CF;
+  --color-border-light: #EEEAE4;
+
+  /* ブランド */
+  --color-forest:      #1E3028;
+  --color-forest-mid:  #2E4A3A;
+  --color-amber:       #9B7D58;
+  --color-gold:        #C9A96E;
+
+  /* フォント */
+  --font-serif: var(--font-cormorant, "Garamond", "Palatino Linotype", "Book Antiqua", Georgia, serif);
+  --font-sans:  var(--font-noto-sans, "Noto Sans JP", "Hiragino Sans", "Yu Gothic Medium", sans-serif);
+}
+
+:root {
+  --background: #F3F0EB;
+  --foreground: #191916;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* ── スクロールバー ── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #DDD8CF; border-radius: 2px; }
+
+/* ── アニメーション ── */
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.97) translateY(12px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);    }
+}
+@keyframes modal-backdrop-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slide-from-right {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+@keyframes slide-from-left {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+.animate-modal-in    { animation: modal-in          0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-backdrop-in { animation: modal-backdrop-in 0.22s ease-out forwards; }
+.animate-slide-right { animation: slide-from-right  0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-slide-left  { animation: slide-from-left   0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-up     { animation: fade-up            0.3s  cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* ── セリフフォントユーティリティ ── */
+.font-serif {
+  font-family: var(--font-serif);
+}
